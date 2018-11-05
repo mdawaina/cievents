@@ -11,14 +11,17 @@ class Events extends CI_Controller{
         $data = array();
         $event_html = "";
         foreach($event_data as $event ){
-         $event_html = $event_html . $this->view_event($event);
+
+         $speakers = $this->events->getListTable("speakers", array("event"=> $event->id));
+         $event_html = $event_html . $this->view_event($event, $speakers);
         }
         $data['eventHTML'] = $event_html;
         $this->_view('events/eventPage', $data, false);
     }
 
-    function view_event($event){
+    function view_event($event, $speakers){
         $data['event_item'] = $event;
+        $data['speakers'] = $speakers;
         return $this->_view("events/event_item",$data, true);
     }
 

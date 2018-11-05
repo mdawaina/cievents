@@ -10,8 +10,8 @@
 									<div class="date_container">
 										<a href="#">
 											<span class="date_content d-flex flex-column align-items-center justify-content-center">
-												<div class="date_day">15</div>
-												<div class="date_month">May</div>
+												<div class="date_day"><?php echo date_format(date_create($event_item->date),"d")?></div>
+												<div class="date_month"><?php echo date_format(date_create($event_item->date),"F")?></div>
 											</span>
 										</a>	
 									</div>
@@ -25,22 +25,18 @@
 										<p><?php echo $event_item->about?></p>
 									</div>
 									<div class="event_speakers">
+
+									<?php foreach ($speakers as $speaker) { ?>
+									
 										<!-- Event Speaker -->
 										<div class="event_speaker d-flex flex-row align-items-center justify-content-start">
-											<div><div class="event_speaker_image"><img src="images/event_speaker_1.jpg" alt=""></div></div>
+											<div><div class="event_speaker_image"><img src="<?php echo base_url()?>assets/uploads/<?php echo $speaker->sphoto?>" alt=""></div></div>
 											<div class="event_speaker_content">
-												<div class="event_speaker_name">Michael Smith</div>
-												<div class="event_speaker_title">Marketing Specialist</div>
+												<div class="event_speaker_name"><?php echo $speaker->name?></div>
+												<div class="event_speaker_title"><?php echo $speaker->title?></div>
 											</div>
 										</div>
-										<!-- Event Speaker -->
-										<div class="event_speaker d-flex flex-row align-items-center justify-content-start">
-											<div><div class="event_speaker_image"><img src="images/event_speaker_2.jpg" alt=""></div></div>
-											<div class="event_speaker_content">
-												<div class="event_speaker_name">Jessica Williams</div>
-												<div class="event_speaker_title">Marketing Specialist</div>
-											</div>
-										</div>
+									<?php } ?>
 									</div>
 									<div class="event_buttons">
 										<div class="button event_button event_button_1"><a href="#">Buy Tickets Now!</a></div>

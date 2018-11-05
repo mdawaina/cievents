@@ -19,6 +19,21 @@ class Events_model extends CI_Model {
 
     }
 
+     function getListTable($table, $cond = array()) {
+
+        $this->db->select("*");
+
+        $this->db->from($table);
+
+        $this->db->where($cond);
+        $query = $this->db->get();
+
+        return $result = $query->result();
+
+    }
+
+    
+
 
 }
 
