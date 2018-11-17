@@ -474,7 +474,7 @@ section
 .home
 {
 	width: 100%;
-	height: 150px;
+	height: 100vh;
 }
 .home_background
 {
@@ -491,7 +491,7 @@ section
 {
 	position: absolute;
 	left: 0;
-	top: 42%;
+	/*top: 42%; */
 	width: 100%;
 }
 .home_content

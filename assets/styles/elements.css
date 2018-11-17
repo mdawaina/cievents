@@ -1436,3 +1436,16 @@ section
 	color: #bbbbbb;
 	margin-top: 7px;
 }
+
+/*********************************
+7. Table
+*********************************/
+
+.thead
+{
+	background-color: white;
+	opacity: 0.5;
+	font-style: bold;
+	font-size: 20px; 
+}
+

@@ -326,23 +326,28 @@
 	}
 	.contact_input::-webkit-input-placeholder
 	{
-		font-size: 13px !important;
+		font-size: 14px !important;
+		color: black;
 	}
 	.contact_input:-moz-placeholder
 	{
-		font-size: 13px !important;
+		font-size: 14px !important;
+		color: black;
 	}
 	.contact_input::-moz-placeholder
 	{
-		font-size: 13px !important;
+		font-size: 14px !important;
+		color: black;
 	} 
 	.contact_input:-ms-input-placeholder
 	{ 
-		font-size: 13px !important;
+		font-size: 14px !important;
+		color: black;
 	}
 	.contact_input::input-placeholder
 	{
-		font-size: 13px !important;
+		font-size: 14px !important;
+		color: black;
 	}
 	.contact_form_title
 	{

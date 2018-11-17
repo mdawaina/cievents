@@ -14,6 +14,8 @@
 <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/styles/events.css">
 <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/styles/responsive.css">
+<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/styles/contact.css">
+<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/styles/contact_responsive.css">
 </head>
 <body>
 
@@ -118,7 +120,7 @@
 											</nav>
 											<div class="header_extra ml-auto">
 												<div class="header_search"><i class="fa fa-search" aria-hidden="true"></i></div>
-												<div class="button header_button"><a href="#">Buy Tickets Now!</a></div>
+												<div class="button header_button"><a href="<?=base_url()?>index.php/events/addevent">add Event</a></div>
 											</div>
 										</div>
 									</div>

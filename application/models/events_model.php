@@ -11,7 +11,7 @@ class Events_model extends CI_Model {
        $this->db->select("*");
        $this->db->from("events");
        //$this->db->where(array());
-       $this->db->limit(3);
+       $this->db->limit(6);
        $query = $this->db->get();
        //print_r($query);
 
@@ -32,7 +32,20 @@ class Events_model extends CI_Model {
 
     }
 
-    
+
+    function insertEvent($data){
+       $this->db->insert('events', $data);
+       return $this->db->insert_id();
+    }
+
+    function insertSpeaker($data) {
+        $this->db->insert('speakers', $data);
+
+        $event_id = $data['event'];
+
+        $seapker_data = $this->db->get_where('speakers', array('event' => $event_id));
+        return $seapker_data->result();
+    }
 
 
 }

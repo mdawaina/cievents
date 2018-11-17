@@ -870,10 +870,14 @@ section
 .contact
 {
 	width: 100%;
-	background: #FFFFFF;
+	background:#ffffff;
 	padding-top: 158px;
 	padding-bottom: 161px;
 }
+
+
+
+
 .contact_map_background
 {
 	position: absolute;
@@ -911,7 +915,7 @@ section
 .contact_form_container
 {
 	width: 100%;
-	background: rgba(3,9,32,0.86);
+	background: rgba(3,9,32,0.5);
 	padding-top: 50px;
 	padding-left: 59px;
 	padding-right: 58px;
@@ -938,7 +942,13 @@ section
 }
 .contact_form input:not(:last-child)
 {
+	
 	margin-bottom: 24px;
+}
+.contact_form input,.contact_form textarea
+{
+	background-color:#f3f7f9;
+	
 }
 .contact_button
 {
@@ -957,47 +967,48 @@ section
 .contact_textarea
 {
 	padding-top: 14px;
-	height: 232px;
+	height: 150px;
 }
+
+
 .contact_input::-webkit-input-placeholder
 {
 	font-size: 14px !important;
 	font-weight: 400 !important;
 	font-style: italic;
-	color: #888888 !important;
+	color: #4c4c4c !important;
 }
 .contact_input:-moz-placeholder
 {
 	font-size: 14px !important;
 	font-weight: 400 !important;
 	font-style: italic;
-	color: #888888 !important;
+	color: #4c4c4c !important;
 }
 .contact_input::-moz-placeholder
 {
 	font-size: 14px !important;
 	font-weight: 400 !important;
 	font-style: italic;
-	color: #888888 !important;
+	color: #4c4c4c !important;
 } 
 .contact_input:-ms-input-placeholder
 { 
 	font-size: 14px !important;
 	font-weight: 400 !important;
 	font-style: italic;
-	color: #888888 !important;
+	color: #4c4c4c !important;
 }
 .contact_input::input-placeholder
 {
 	font-size: 14px !important;
 	font-weight: 400 !important;
 	font-style: italic;
-	color: #888888 !important;
+	color: #4c4c4c !important;
 }
 .contact_info_container
 {
-	max-width: 354px;
-	background: rgba(3,9,32,0.86);
+	background: rgba(3,9,32,0.6);
 	padding-top: 53px;
 	padding-bottom: 84px;
 	padding-left: 41px;
