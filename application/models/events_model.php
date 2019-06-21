@@ -47,7 +47,18 @@ class Events_model extends CI_Model {
         return $seapker_data->result();
     }
 
+    function loadEvent($event_id){
+        $event_query = $this->db->get_where("events", array("id"=> $event_id));
+        if($event_query->num_rows() == 1){
+            return $event_query->row();
+        } else return null;
+    }
 
+    function editEvent($event_id, $event_data) {
+        $this->db->where('id', $event_id);
+        $this->db->update('events', $event_data);
+        return $event_id;
+    }
 }
 
 ?>

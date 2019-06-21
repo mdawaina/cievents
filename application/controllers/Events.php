@@ -105,6 +105,61 @@ class Events extends CI_Controller{
     }
 
 
+    function viewEvent($event_id){
+         $this->load->model('events_model', 'events');
+        $data['event_item'] = $this->events->loadEvent($event_id);
+        $data["speakers"] = $this->events->getListTable("speakers", array("event"=> $event_id));
+
+        $this->_view("events/viewEvent", $data);
+
+    }
+    
+    function editEvent($event_id = null){
+        $this->load->model('events_model', 'events');
+        if(empty($_POST)){
+            // retrieve data from db
+            
+            $data['event'] = $this->events->loadEvent($event_id);
+
+            $this->_view('events/editEvent', $data);
+
+        }else {
+            // update database
+            $eventData['title'] = $this->input->post('title');
+            $eventData['date'] = $this->input->post('date');
+            $eventData['city'] = $this->input->post('city');
+            $eventData['address'] = $this->input->post('address');
+            $eventData['about'] = $this->input->post('about');
+            
+            // uploading image 
+
+            $config['upload_path'] = './assets/uploads';
+            $config['allowed_types'] = 'jpg|png';
+            $config['max_size'] = 1000;
+            $config['max_width'] = 2000;
+            $config['max_height'] = 1024;
+
+            $this->load->library('upload', $config);
+
+            $this->upload->do_upload('photo');
+            $data = array('upload_data' => $this->upload->data());
+
+            if(!empty($data['upload_data']['file_name'])){
+                $eventData['photo'] = $data['upload_data']['file_name'];
+            }
+
+            $event_id = $this->input->post('event_id');
+
+            $now = new DateTime("now", new DateTimeZone('Asia/Riyadh'));
+            $eventData['createdAt'] = $now->format('Y-m-d H:i:s');
+
+            $data = null;
+            $data['event'] = $this->events->editEvent($event_id, $eventData);
+            $this->viewEvent($event_id);
+        }
+    }
+
+
     function _view($page, $data = array(), $isHTML = false){
         if($isHTML) {
             return $this->load->view($page,$data,true);

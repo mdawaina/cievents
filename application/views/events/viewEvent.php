@@ -1,5 +1,30 @@
-<!-- Events -->
+<div class="home_content_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_content d-flex flex-row align-items-end justify-content-start">
+							<div class="current_page">Events</div>
+							<div class="breadcrumbs ml-auto">
+								<ul>
+									<li><a href="index.html">Home</a></li>
+									<li>Events</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
+	<div class="events">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+        
+
+
+	
 					
 					<!-- Event -->
 					<div class="event">
@@ -39,12 +64,31 @@
 									<?php } ?>
 									</div>
 									<div class="event_buttons">
-										<div class="button event_button event_button_1"><a href="#">Buy Tickets Now!</a></div>
-										<div class="button_2 event_button event_button_2"><a href="<?=base_url()?>index.php/events/viewEvent/<?=$event_item->id?>">View</a></div>
 										<div class="button_edit  event_button event_button_2"><a href="<?=base_url()?>index.php/events/editEvent/<?=$event_item->id?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a></div>
 										<div class="button_delete  event_button event_button_2"><a href="#"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a></div>
 									</div>
 								</div>
 							</div>
 						</div>
+                    </div>
+                    
+
+
+                    	<div class="cta">
+			<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="<?=base_url()?>assets/images/cta_1.jpg" data-speed="0.8"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="cta_content text-center">
+							<div class="cta_title">Get your tickets now!</div>
+							<div class="button cta_button"><a href="#">Find out more</a></div>
+						</div>
 					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</div>
+	</div>
+	</div>
