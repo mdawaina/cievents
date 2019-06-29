@@ -53,8 +53,44 @@
 								</div>
 							</a>	
 						</div>
+						<div class="logo_text logo_text_not_ie"> Speakers</div>
+						<table class="table table-striped table-bordered" style = "margin-top:17px; margin-left:20px;">
+							<thead style = "background-color:rgb(187, 187, 240); font-size: 20px; font-style: italic; color: black;">
+								<tr>
+									
+									<th width = "20%" style="vertical-align:middle;">Speaker Photo</th>
+									<th width = "20%" style="vertical-align:middle;">Speaker Name</th>
+									<th width = "20%" style="vertical-align:middle;">Title</th>																
+									<th width = "20%" style="vertical-align:middle;"></th>																
+									
+								</tr>
+							</thead>
+							<tbody style = "color: rgb(92, 89, 89);">
+
+								<?php if(isset($speakers)){ ?>
+								
+                                <?php foreach ($speakers as $speaker) { ?>
+                                  
+                                  <tr>
+								  <td style="text-align:center;">
+										<img src="<?=base_url()?>assets/uploads/<?=$speaker->sphoto?>" alt="">
+									</td>
+                                    <td><?=$speaker->name?></td>
+                                    <td><?=$speaker->title?></td>
+                                    <td><a href="<?=base_url()?>index.php/events/editspeaker/<?=$speaker->id?>">Edit</a> | <a href="">Delete</a></td>
+                                   
+                                  </tr>
+
+
+                              <?php } } ?>
+								
+								
+							</tbody>	
+						</table>
+						<br>
+						<a href="<?=base_url()?>index.php/events/addSpeaker/<?=$event->id?>" style="margin:20px;"><strong>Add Speaker</strong></a>
+					</div>
 						
-						<div class="logo_text logo_text_not_ie"> </div>
 						
 					</div>
 				</div>

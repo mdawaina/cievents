@@ -59,6 +59,20 @@ class Events_model extends CI_Model {
         $this->db->update('events', $event_data);
         return $event_id;
     }
+
+    function listEventSpeakers($event_id) {
+        $speakers = $this->db->get_where('speakers', array('event' => $event_id));
+        return $speakers->result();
+    }
+
+    function getSpeaker($speaker_id) {
+        $speaker = $this->db->get_where('speakers' , array('id' => $speaker_id));
+        return $speaker->row();
+    }
+    function updateSpeaker($speaker) {
+        $this->db->where('id' , $speaker['id']);
+        $this->db->update('speakers', $speaker);
+    }
 }
 
 ?>

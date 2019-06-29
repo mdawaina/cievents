@@ -3,11 +3,11 @@
 				<div class="row">
 					<div class="col">
 						<div class="home_content d-flex flex-row align-items-end justify-content-start">
-							<div class="current_page">New Event</div>
+							<div class="current_page">New/Edit Event</div>
 							<div class="breadcrumbs ml-auto">
 								<ul>
 									<li><a href="index.html">Home</a></li>
-									<li>New Event</li>
+									<li>New/Edit Event</li>
 								</ul>
 							</div>
 						</div>
@@ -24,7 +24,9 @@
 			<div class="row">
 				<div class="col-md-5" style = "margin-left: 75px;">
 					<div>
-						<div class="logo_text logo_text_not_ie">Event: <?=$event_title?></div>
+						<?php if (isset($event_title)):?>
+							<div class="logo_text logo_text_not_ie">Event: <?=$event_title?></div>
+						<?php endif;?>
 						<form action="<?=base_url()?>index.php/events/addspeaker" method="post" enctype="multipart/form-data" class="contact_form" id="contact_form">
 							<input type="text" name="name" class="contact_input" placeholder="Speaker name" >
 							<input type="text" name="title" class="contact_input" placeholder="Speaker title" >
@@ -33,8 +35,10 @@
 							<textarea name="about" id="contact_textarea" class="contact_textarea contact_input" placeholder="About speaker"></textarea>
 							<button type="submit" class="button contact_button"><span>Add Speaker</span></button>
 
-                            <input type="hidden" name="event" value="<?=$event?>"/>
-                            <input type="hidden" name="event_title" value="<?=$event_title?>"/>
+							<input type="hidden" name="event" value="<?=$event?>"/>
+							<?php if (isset($event_title)):?>
+								<input type="hidden" name="event_title" value="<?=$event_title?>"/>
+							<?php endif;?>
 
 						</form>
 					</div>
@@ -56,6 +60,8 @@
 						<table class="table table-striped table-bordered" style = "margin-top:17px; margin-left:20px;">
 							<thead style = "background-color:rgb(187, 187, 240); font-size: 20px; font-style: italic; color: black;">
 								<tr>
+									<th width = "20%" style="vertical-align:middle;">Speaker Photo</th>
+									
 									<th width = "20%" style="vertical-align:middle;">Speaker Name</th>
 									<th width = "20%" style="vertical-align:middle;">Title</th>																
 									
@@ -68,6 +74,7 @@
                                 <?php foreach ($speakers as $speaker) { ?>
                                   
                                   <tr>
+								  <td style="text-align:center"><img src="<?=base_url()?>assets/uploads/<?=$speaker->sphoto?>" alt=""></td>
                                     <td><?=$speaker->name?></td>
                                     <td><?=$speaker->title?></td>
                                    

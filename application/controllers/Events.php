@@ -66,12 +66,19 @@ class Events extends CI_Controller{
     }
 
 
-    function addSpeaker(){
+    function addSpeaker($event_id = null){
+        $this->load->model('events_model', 'events');
           if(empty($_POST)){
-            $this->_view("events/addSpeaker");
+
+            $data = null;
+            if(isset($event_id)){
+                $data["event"] = $event_id;
+                $data["speakers"] = $this->events->listEventSpeakers($event_id);
+            }
+            $this->_view("events/addSpeaker", $data);
         }
         else {
-            $this->load->model('events_model', 'events');
+            
              $speakerData['name'] = $this->input->post('name');
              $speakerData['title'] = $this->input->post('title');
              $speakerData['about'] = $this->input->post('about');
@@ -120,7 +127,7 @@ class Events extends CI_Controller{
             // retrieve data from db
             
             $data['event'] = $this->events->loadEvent($event_id);
-
+            $data['speakers'] = $this->events->listEventSpeakers($event_id);
             $this->_view('events/editEvent', $data);
 
         }else {
@@ -158,6 +165,38 @@ class Events extends CI_Controller{
             $this->viewEvent($event_id);
         }
     }
+
+    function editSpeaker($speaker_id = null) {
+        $this->load->model('events_model', 'events');
+        if(empty($_POST)){
+            $data['speaker'] = $this->events->getSpeaker($speaker_id);
+            $this->_view('events/editspeaker', $data);
+        }else {
+            $config['upload_path']          = './assets/uploads/';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['max_size']             = 1000;
+            $config['max_width']            = 1024;
+            $config['max_height']           = 768;
+
+            $this->load->library('upload', $config);
+
+            $this->upload->do_upload('sphoto');
+            $data = array('upload_data' => $this->upload->data());
+
+            $update['id'] = $this->input->post('speaker_id');
+            $update['name'] = $this->input->post('name');
+            $update['title'] = $this->input->post('title');
+            $update['sphoto'] = $this->input->post('sphoto');
+            $update['about'] = $this->input->post('about');
+            if(!empty($data['upload_data']['file_name'])){
+                $update['sphoto'] = $data['upload_data']['file_name'];
+            }
+            $this->events->updateSpeaker($update);
+            $this->viewEvent($this->input->post('event_id'));
+        }
+    }
+
+  
 
 
     function _view($page, $data = array(), $isHTML = false){
