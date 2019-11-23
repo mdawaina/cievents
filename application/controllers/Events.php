@@ -197,7 +197,26 @@ class Events extends CI_Controller{
     }
 
   
+    function deleteEvent($event_id){
 
+        $this->db->where("event", $event_id);
+        $this->db->delete("speakers");
+        $this->db->where("id", $event_id);
+        $this->db->delete("events");
+        $this->listEvents();
+    }
+
+    function deleteSpeaker($speaker_id){
+
+        $this->db->where("id", $speaker_id);
+        $query = $this->db->get("speakers");
+        $speaker = $query->row();
+        $event_id = $speaker->event;
+        $this->db->where("id",$speaker_id);
+        $this->db->delete("speakers");
+
+        $this->viewEvent($event_id);
+    }
 
     function _view($page, $data = array(), $isHTML = false){
         if($isHTML) {

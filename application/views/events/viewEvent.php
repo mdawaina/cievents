@@ -60,12 +60,13 @@
 												<div class="event_speaker_name"><?php echo $speaker->name?></div>
 												<div class="event_speaker_title"><?php echo $speaker->title?></div>
 											</div>
+											<a href="<?=base_url()?>index.php/events/deleteSpeaker/<?=$speaker->id?>" style="margin-left:30px;">Delete</a>
 										</div>
 									<?php } ?>
 									</div>
 									<div class="event_buttons">
 										<div class="button_edit  event_button event_button_2"><a href="<?=base_url()?>index.php/events/editEvent/<?=$event_item->id?>"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a></div>
-										<div class="button_delete  event_button event_button_2"><a href="#"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a></div>
+										<div class="button_delete  event_button event_button_2"><a href="<?=base_url()?>index.php/events/deleteEvent/<?=$event_item->id?>"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a></div>
 									</div>
 								</div>
 							</div>
