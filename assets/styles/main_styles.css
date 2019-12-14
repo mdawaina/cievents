@@ -1339,3 +1339,8 @@ section
 	color: #bbbbbb;
 	margin-top: 7px;
 }
+
+
+.validation-messages p{
+	color: red;
+}

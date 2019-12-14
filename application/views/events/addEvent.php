@@ -24,15 +24,17 @@
 				<div class="col-md-5" style = "margin-left: 75px;">
 					<div>
 						<div class="logo_text logo_text_not_ie">New Event</div>
-						
+						<div class="validation-messages">
+							<?php echo validation_errors(); ?>
+						</div>
 						<form action="<?=base_url()?>index.php/events/addevent" method="post" enctype="multipart/form-data" class="contact_form" id="contact_form">
-							<input type="text" name="title" class="contact_input" placeholder="Event title" >
+							<input type="text" name="title" class="contact_input" placeholder="Event title" value="<?php echo set_value('title'); ?>">
 							<label style = "font-style: italic; color:rgb(56, 55, 55);">Photo  
 							 <input type="file" name="photo" placeholder="Speaker photo"  style = "margin-left:15px;"></label>
-							<input type="date" name="date" class="contact_input" placeholder="Date" >
-							<input type="text" name="city" class="contact_input" placeholder="City" >
-							<input type="text" name="address" class="contact_input" placeholder="Address" >
-							<textarea name="about" id="contact_textarea" class="contact_textarea contact_input" placeholder="About" ></textarea>
+							<input type="date" name="date" class="contact_input" placeholder="Date" value="<?php echo set_value('date'); ?>" >
+							<input type="text" name="city" class="contact_input" placeholder="City" value="<?php echo set_value('city'); ?>">
+							<input type="text" name="address" class="contact_input" placeholder="Address" value="<?php echo set_value('address'); ?>" >
+							<textarea name="about" id="contact_textarea" class="contact_textarea contact_input" placeholder="About" value="<?php echo set_value('about'); ?>"></textarea>
 							<button class="button contact_button" type="submit"><span>Add Event</span></button>
 						</form>
 					</div>
